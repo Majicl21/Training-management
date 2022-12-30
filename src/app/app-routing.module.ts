@@ -17,12 +17,11 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent},
   {path:'trainings',component:TrainingsComponent},
   {path:'students',component:StudentsComponent},
-  {path:'profile',component:ProfileComponent},
+  {path:'profile',component:ProfileComponent , canActivate : [AuthGuard]},
   {path:'ssidenav',component:SsidenavComponent},
   {path:'straining',component:StrainingComponent},
   {path:'sdashboard',component:SdashboardComponent},
 ];
-// , canActivate : [AuthGuard]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

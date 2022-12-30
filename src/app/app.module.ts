@@ -28,24 +28,23 @@ import { SsidenavComponent } from './student-dashboard/ssidenav/ssidenav.compone
 import { SdashboardComponent } from './student-dashboard/sdashboard/sdashboard.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
+function kcFactory(kcService: KeycloakService) {
+  return () =>
+    kcService.init({
+      config: {
+        url: 'http://localhost:8080',
+        realm: 'My-realm',
+        clientId: 'My-client-id'
+      },
+      initOptions: {
+        checkLoginIframe:false,
+        onLoad: 'check-sso',
+        silentCheckSsoRedirectUri:
+          window.location.origin + '/assets/silent-check-sso.html'
 
-// function kcFactory(kcService: KeycloakService) {
-//   return () =>
-//     kcService.init({
-//       config: {
-//         url: 'http://localhost:8080',
-//         realm: 'My-realm',
-//         clientId: 'My-client-id'
-//       },
-//       initOptions: {
-//         checkLoginIframe:false,
-//         onLoad: 'check-sso',
-//         silentCheckSsoRedirectUri:
-//           window.location.origin + '/assets/silent-check-sso.html'
-
-//       }
-//     });
-// }
+      }
+    });
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,11 +80,11 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
     MatGridListModule,
   ],
   providers: [
-    // {
-    // provide: APP_INITIALIZER,
-    // useFactory: kcFactory,
-    // multi: true,
-    // deps: [KeycloakService]}
+    {
+    provide: APP_INITIALIZER,
+    useFactory: kcFactory,
+    multi: true,
+    deps: [KeycloakService]}
   ],
   bootstrap: [AppComponent],
 })
