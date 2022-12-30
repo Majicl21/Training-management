@@ -17,3 +17,4 @@ export class HeaderComponent implements OnInit {
     this.toggleSidebarForMe.emit();
   }
 }
+export class MenuOverviewExample {}
