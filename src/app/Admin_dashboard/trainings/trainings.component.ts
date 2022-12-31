@@ -19,7 +19,6 @@ export class TrainingsComponent implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private activatedRoute: ActivatedRoute,
     private crudService: CrudService
     ) {
       this.trainingForm = this.formBuilder.group({

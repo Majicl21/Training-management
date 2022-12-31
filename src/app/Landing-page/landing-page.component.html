@@ -37,35 +37,65 @@
 </header>
 
 <!-- Footer-->
-<footer class="footer bg-light">
-   <div class="container">
-       <div class="row">
-           <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-               <ul class="list-inline mb-2 ">
-                   <li class="list-inline-item "><a href="#!" class="text-secondary text-decoration-none">About</a></li>
-                   <li class="list-inline-item">⋅</li>
-                   <li class="list-inline-item"><a href="#!" class="text-secondary text-decoration-none">Contact</a></li>
-                   <li class="list-inline-item">⋅</li>
-                   <li class="list-inline-item"><a href="#!" class="text-secondary text-decoration-none">Terms of Use</a></li>
-                   <li class="list-inline-item">⋅</li>
-                   <li class="list-inline-item"><a href="#!" class="text-secondary text-decoration-none">Privacy Policy</a></li>
-               </ul>
-               <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
-           </div>
-           <div class="col-lg-6 h-100 text-center text-lg-center my-auto">
-               <ul class="list-inline mb-0">
-                   <li class="list-inline-item me-4">
-                       <a href="#!"><i class="bi-facebook fs-3"></i>
-                       </a>
-                   </li>
-                   <li class="list-inline-item me-4">
-                       <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                   </li>
-                   <li class="list-inline-item">
-                       <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                   </li>
-               </ul>
-           </div>
-       </div>
-   </div>
+<footer class="footer bg-light" >
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+              <ul class="list-inline mb-2 ">
+                  <li class="list-inline-item "><a href="#!" class="text-secondary text-decoration-none">About</a></li>
+                  <li class="list-inline-item">⋅</li>
+                  <li class="list-inline-item"><a href="#!" class="text-secondary text-decoration-none">Contact</a></li>
+                  <li class="list-inline-item">⋅</li>
+                  <li class="list-inline-item"><a href="#!" class="text-secondary text-decoration-none">Terms of Use</a></li>
+                  <li class="list-inline-item">⋅</li>
+                  <li class="list-inline-item"><a href="#!" class="text-secondary text-decoration-none">Privacy Policy</a></li>
+              </ul>
+              <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-2 h-100 text-center text-lg-center my-auto">
+              <ul class="list-inline mb-0">
+                  <li class="list-inline-item me-4">
+                      <a href="#!"><i class="bi-facebook fs-3"></i>
+                      </a>
+                  </li>
+                  <li class="list-inline-item me-4">
+                      <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-lg-2 h-100 text-center text-lg-end my-auto">
+             <button class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#loginModal" >Admin</button>
+          </div>
+
+      </div>
+  </div>
 </footer>
+
+<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <h2 id="loginModalLabel">You are an Admin ?</h2>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+          <form #Form="ngForm">
+          <div class="form-group ">
+             <input type="password" [(ngModel)]="input_key" name="name" class="form-control" id="name" placeholder="Key" required>
+          </div>
+
+          <div class="modal-footer ">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             <button [className]="Form.invalid || input_key!=key ? 'btn btn-outline-danger' : 'btn btn-success'" [disabled]="Form.invalid || input_key!=key"
+              type="button" class="btn btn-success" routerLinkActive="list-item-active" routerLink="/admin">Login</button>
+          </div>
+          </form>
+       </div>
+    </div>
+  </div>
+</div> -->
