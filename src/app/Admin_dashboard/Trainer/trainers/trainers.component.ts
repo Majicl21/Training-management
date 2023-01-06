@@ -12,7 +12,6 @@ export class TrainersComponent {
   trainerForm: FormGroup;
   Trainers: any = [];
 
-
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
@@ -41,11 +40,22 @@ export class TrainersComponent {
         console.log(err);
     });
   }
+
+  delete(id:any, i:any) {
+    console.log(id);
+    if(window.confirm('Do you want to go ahead?')) {
+      this.trainerService.deleteTrainer(id).subscribe((res: any) => {
+        this.Trainers.splice(i, 1);
+      })
+    }
+  }
+
   title = 'admin';
   sideBarOpen = true;
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
 }
+
 export class CardOverviewExample {}
 export class GridListOverviewExample {}

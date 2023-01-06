@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-profile',
@@ -6,7 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-
+  constructor(private keycloakAngular: KeycloakService){}
+  ngOnInit(): void
+  {
+      // this.keycloakAngular
+      //     .isLoggedIn()
+      //     .then( loggedIn => {
+      //         if( loggedIn ) {
+      //             console.log(this.keycloakAngular.getUsername());
+      //         }
+      //     })
+      //     .catch( reason => console.log ( reason ));
+  }
 }
 window.addEventListener('DOMContentLoaded', event => {
 

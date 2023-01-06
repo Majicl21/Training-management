@@ -15,7 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import { TrainingsComponent } from './Admin_dashboard/trainings/trainings.component';
+import { TrainingsComponent } from './Admin_dashboard/Training/trainings/trainings.component';
 import { MatTreeModule} from '@angular/material/tree';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -27,26 +27,30 @@ import { StrainingComponent } from './student-dashboard/straining/straining.comp
 import { SsidenavComponent } from './student-dashboard/ssidenav/ssidenav.component';
 import { SdashboardComponent } from './student-dashboard/sdashboard/sdashboard.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { TrainersComponent } from './Admin_dashboard/trainers/trainers.component';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TrainersComponent } from './Admin_dashboard/Trainer/trainers/trainers.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { LandingPageComponent } from './Landing-page/landing-page.component';
+import { EditComponent } from './Admin_dashboard/Training/edit/edit.component';
+import { EditTrainerComponent } from './Admin_dashboard/Trainer/edit-trainer/edit-trainer.component';
 
-// function kcFactory(kcService: KeycloakService) {
-//   return () =>
-//     kcService.init({
-//       config: {
-//         url: 'http://localhost:8080',
-//         realm: 'My-realm',
-//         clientId: 'My-client-id'
-//       },
-//       initOptions: {
-//         checkLoginIframe:false,
-//         onLoad: 'check-sso',
-//         silentCheckSsoRedirectUri:
-//           window.location.origin + '/assets/silent-check-sso.html'
+function kcFactory(kcService: KeycloakService) {
+  return () =>
+    kcService.init({
+      config: {
+        url: 'http://localhost:8080',
+        realm: 'My-realm',
+        clientId: 'My-client-id'
+      },
+      initOptions: {
+        checkLoginIframe:false,
+        onLoad: 'check-sso',
+        silentCheckSsoRedirectUri:
+          window.location.origin + '/assets/silent-check-sso.html'
 
-//       }
-//     });
-// }
+      }
+    });
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +64,9 @@ import { TrainersComponent } from './Admin_dashboard/trainers/trainers.component
     SsidenavComponent,
     SdashboardComponent,
     TrainersComponent,
+    LandingPageComponent,
+    EditComponent,
+    EditTrainerComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,13 +90,15 @@ import { TrainersComponent } from './Admin_dashboard/trainers/trainers.component
     MatTableModule,
     MatCardModule,
     MatGridListModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
   ],
   providers: [
-  //  {
-    // provide: APP_INITIALIZER,
-    // useFactory: kcFactory,
-    // multi: true,
-    // deps: [KeycloakService]}
+   {
+    provide: APP_INITIALIZER,
+    useFactory: kcFactory,
+    multi: true,
+    deps: [KeycloakService]}
   ],
   bootstrap: [AppComponent],
 })

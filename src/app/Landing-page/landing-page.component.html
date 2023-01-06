@@ -1,43 +1,40 @@
 <!-- Navigation-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
-
 <nav class="navbar navbar-light bg-light static-top">
-   <div class="container">
-       <a class="navbar-brand text-primary text-uppercase font-weight-bold" href="#!">Learning</a>
-       <div>
-           <a class="btn btn-primary mx-3" href="#signup">Sign Up</a>
-           <a class="btn btn-primary mx-3" href="#signin">Sign In</a>
-        </div>
-  </div>
-
+  <div class="container">
+      <a class="navbar-brand text-primary text-uppercase font-weight-bold" >Learning</a>
+      <div>
+          <a class="btn btn-primary mx-3" routerLink="/profile">Sign Up</a>
+          <a class="btn btn-primary mx-3"  routerLinkActive="list-item-active" routerLink="/profile">Sign In</a>
+       </div>
+ </div>
 </nav>
 
 <!-- Masthead-->
 <header class="masthead">
-   <div class="container position-relative ">
-       <div class="row justify-content-center py-5">
-           <div class="col-xl-6">
-               <div class="text-center text-uppercase">
-                   <img src="./assets/img/learning.png" alt="Learning" width="">
-               </div>
-               <div class="text-center text-uppercase">
-                   <h1 class="mb-4 text-primary">Learning</h1>
+  <div class="container position-relative ">
+      <div class="row justify-content-center py-5">
+          <div class="col-xl-6">
+              <div class="text-center text-uppercase">
+                  <img src="../assets/img/learning.png" alt="Learning" width="">
+              </div>
+              <div class="text-center text-uppercase">
+                  <h1 class="mb-4 text-primary">Learning</h1>
 
-               </div>
-           </div>
-           <div class="col-xl-6">
-               <div class="text-uppercase py-5 text-secondary ">
-                   <h1 class="mb-4">“In learning you will teach, and in teaching you will learn.”</h1>
-                   <h3>― Phil Collins</h3>
-               </div>
-           </div>
-       </div>
+              </div>
+          </div>
+          <div class="col-xl-6">
+              <div class="text-uppercase py-5 text-secondary ">
+                  <h1 class="mb-4">“In learning you will teach, and in teaching you will learn.”</h1>
+                  <h3>― Phil Collins</h3>
+              </div>
+          </div>
+      </div>
 
-   </div>
+  </div>
 </header>
 
 <!-- Footer-->
-<footer class="footer bg-light" >
+<footer class="footer bg-light">
   <div class="container">
       <div class="row">
           <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
@@ -74,7 +71,10 @@
   </div>
 </footer>
 
-<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+
+
+<!-- Add Training Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
        <div class="modal-header">
@@ -84,18 +84,18 @@
           </button>
        </div>
        <div class="modal-body">
-          <form #Form="ngForm">
+          <form >
           <div class="form-group ">
-             <input type="password" [(ngModel)]="input_key" name="name" class="form-control" id="name" placeholder="Key" required>
+             <input type="password" (keyup)="onKey($event)" #key name="name" class="form-control" id="name" placeholder="Key" required>
           </div>
 
           <div class="modal-footer ">
              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-             <button [className]="Form.invalid || input_key!=key ? 'btn btn-outline-danger' : 'btn btn-success'" [disabled]="Form.invalid || input_key!=key"
-              type="button" class="btn btn-success" routerLinkActive="list-item-active" routerLink="/admin">Login</button>
+             <a><button [className]="value!==KEY ? 'btn btn-outline-danger' : 'btn btn-success'" [disabled]="value!==KEY "
+              type="button" class="btn btn-success" routerLinkActive="list-item-active" routerLink="/dashboard">Login</button></a>
           </div>
           </form>
        </div>
     </div>
   </div>
-</div> -->
+</div>
